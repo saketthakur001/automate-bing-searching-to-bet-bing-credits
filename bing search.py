@@ -24,7 +24,16 @@ def random_search(total_search, number_of_sessions, start_time, end_time):
     '''
 
     # pick random times for the random sessions according to the number of sessions # store numbers in a dictonary
+    total_search += random.randint(-10, 30)
+    number_of_sessions += random.randint(1, 5)
+
     sessions = {}
     for i in range(number_of_sessions):
-        sessions[i] = random.randint(start_time, end_time)
-    
+        sessions[random.randint(start_time, end_time)] = 0
+
+    for i in range(number_of_searches):
+        choice = random.choice(list(sessions.keys()))
+        sessions[choice] +=1
+    return sessions
+
+random_search(50, 5, 9, 24)
